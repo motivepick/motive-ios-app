@@ -20,6 +20,7 @@
 		BE14FB332166AB28002B488B /* motiveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14FB322166AB28002B488B /* motiveUITests.swift */; };
 		BE14FB432166B160002B488B /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14FB422166B160002B488B /* TaskController.swift */; };
 		BE14FB462166B1B3002B488B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14FB452166B1B3002B488B /* Task.swift */; };
+		BE153CC6223DBF1300498A2D /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE153CC5223DBF1300498A2D /* MainController.swift */; };
 		BEB046E12169F5B400AE14B7 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB046E02169F5B400AE14B7 /* TaskService.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		BE14FB342166AB28002B488B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE14FB422166B160002B488B /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		BE14FB452166B1B3002B488B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		BE153CC5223DBF1300498A2D /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		BEB046E02169F5B400AE14B7 /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
 		D10FCA7372307194FE90790A /* Pods-motiveUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motiveUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-motiveUITests/Pods-motiveUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D11FEC16A741C5D27E567724 /* Pods-motive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-motive/Pods-motive.debug.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				BE14FB112166AB27002B488B /* RootController.swift */,
+				BE153CC5223DBF1300498A2D /* MainController.swift */,
 				BE14FB422166B160002B488B /* TaskController.swift */,
 			);
 			path = Controller;
@@ -446,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE14FB122166AB27002B488B /* RootController.swift in Sources */,
+				BE153CC6223DBF1300498A2D /* MainController.swift in Sources */,
 				BE14FB182166AB27002B488B /* motive.xcdatamodeld in Sources */,
 				BEB046E12169F5B400AE14B7 /* TaskService.swift in Sources */,
 				BE14FB462166B1B3002B488B /* Task.swift in Sources */,
