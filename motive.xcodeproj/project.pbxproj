@@ -292,13 +292,16 @@
 				TargetAttributes = {
 					BE14FB0B2166AB27002B488B = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 					};
 					BE14FB222166AB28002B488B = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						TestTargetID = BE14FB0B2166AB27002B488B;
 					};
 					BE14FB2D2166AB28002B488B = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						TestTargetID = BE14FB0B2166AB27002B488B;
 					};
 				};
@@ -425,7 +428,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-motive/Pods-motive-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-motive/Pods-motive-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
@@ -438,7 +441,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-motive/Pods-motive-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-motive/Pods-motive-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -639,7 +642,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.motivepick.motive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -658,7 +661,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.motivepick.motive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -679,7 +682,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.motivepick.motiveTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/motive.app/motive";
 			};
@@ -701,7 +704,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.motivepick.motiveTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/motive.app/motive";
 			};
@@ -722,7 +725,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.motivepick.motiveUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = motive;
 			};
@@ -743,7 +746,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.motivepick.motiveUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = motive;
 			};
