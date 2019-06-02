@@ -28,23 +28,23 @@ class TaskService {
     }
     
     func loadTasks(completion: @escaping ([Task]) -> Void) {
-        Alamofire.request("\(url)/tasks").responseJSON { response in
-            switch response.result {
-                case .success(let value):
-                    let json = JSON(value)
-                    print("JSON: \(json)")
-                    var tasks: [Task] = []
-                    for (_, object) in json {
-                        let name = object["name"].stringValue
-                        let description = object["description"].stringValue
-                        tasks.append(Task(name, description))
-                    }
-                    completion(tasks)
-                case .failure(let error):
-                    print(error)
-                    completion([])
-            }
-        }
+//        Alamofire.request("\(url)/tasks").responseJSON { response in
+//            switch response.result {
+//                case .success(let value):
+//                    let json = JSON(value)
+//                    print("JSON: \(json)")
+//                    var tasks: [Task] = []
+//                    for (_, object) in json {
+//                        let name = object["name"].stringValue
+//                        let description = object["description"].stringValue
+//                        tasks.append(Task(name, description))
+//                    }
+//                    completion(tasks)
+//                case .failure(let error):
+//                    print(error)
+//                    completion([])
+//            }
+//        }
     }
     
 }

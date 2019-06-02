@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77B505B122A41F64005099D3 /* TaskListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B505B022A41F64005099D3 /* TaskListController.swift */; };
 		87D0FD34181CC2BF9A610E67 /* Pods_motive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865AC9E054E04A9876CB4F85 /* Pods_motive.framework */; };
 		959B85A1B2FD0D49F21A9E46 /* Pods_motiveUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D737B06EE8D5D7B046EB7914 /* Pods_motiveUITests.framework */; };
 		997409A22A275B828C7435CE /* Pods_motiveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91CB24A7216E347CB34AC7D /* Pods_motiveTests.framework */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		34B01112730B05C053AF5F01 /* Pods-motiveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motiveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-motiveTests/Pods-motiveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		431E5E5006C926A77D6D4E0B /* Pods-motive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motive.release.xcconfig"; path = "Pods/Target Support Files/Pods-motive/Pods-motive.release.xcconfig"; sourceTree = "<group>"; };
+		77B505B022A41F64005099D3 /* TaskListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListController.swift; sourceTree = "<group>"; };
 		865AC9E054E04A9876CB4F85 /* Pods_motive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_motive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8F3EC073F2AE9F2BF4435BB /* Pods-motiveTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motiveTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-motiveTests/Pods-motiveTests.release.xcconfig"; sourceTree = "<group>"; };
 		BE14FB0C2166AB27002B488B /* motive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = motive.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +172,7 @@
 				BE14FB112166AB27002B488B /* RootController.swift */,
 				BE153CC5223DBF1300498A2D /* MainController.swift */,
 				BE14FB422166B160002B488B /* TaskController.swift */,
+				77B505B022A41F64005099D3 /* TaskListController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -430,6 +433,8 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-motive/Pods-motive-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -437,6 +442,8 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,6 +464,7 @@
 				BEB046E12169F5B400AE14B7 /* TaskService.swift in Sources */,
 				BE14FB462166B1B3002B488B /* Task.swift in Sources */,
 				BE14FB432166B160002B488B /* TaskController.swift in Sources */,
+				77B505B122A41F64005099D3 /* TaskListController.swift in Sources */,
 				BE14FB102166AB27002B488B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

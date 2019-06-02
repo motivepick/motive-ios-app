@@ -7,13 +7,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Task {
-    let name: String
-    let description: String?
-    
-    init(_ name: String, _ description: String? = nil) {
-        self.name = name
-        self.description = description
-    }
+class Task: Object {
+    @objc dynamic var name: String = ""
+    @objc dynamic var closed: Bool = false
 }
