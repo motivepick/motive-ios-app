@@ -15,6 +15,8 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
     var items: Results<Task>?
 
     @IBOutlet weak var newTaskField: UITextField!
+    @IBOutlet weak var showClosedTasksButton: UIButton!
+    @IBOutlet weak var taskCountLabel: UILabel!
     
     let strokeEffect: [NSAttributedString.Key : Any] = [
         NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
@@ -27,6 +29,11 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
     let red = UIColor.init(red: 227.0/255.0, green: 84.0/255.0, blue: 70.0/255.0, alpha: 1.0)
     let green = UIColor.init(red: 120.0/255.0, green: 209.0/255.0, blue: 116.0/255.0, alpha: 1.0)
     
+    var showClosedTasks = false
+    let closedTasksTitle = "SHOW CLOSED TASKS"
+    let openTasksTitle = "SHOW OPEN TASKS"
+    
+    //TODO: add borders around TaskInfoView
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,7 +50,7 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
         dateFormatter.dateFormat = "dd.MM.yyyy"
         dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
 
-        loadItems()
+        showCompletedTasks(showClosedTasks)
     }
     
     //MARK: - Tableview Datasource Methods
@@ -88,6 +95,10 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     @objc func onCloseTask(sender: UIButton){
         let index = sender.tag
         if let task = items?[index] {
@@ -95,28 +106,24 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
                 try realm.write {
                     task.closed = !task.closed
                 }
-                self.tableView.reloadData()
+                self.reloadData()
             } catch {
                 print("error \(error)")
             }
         }
     }
- 
-//    // USING normal cell
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        print("ENDTER")
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath)
-//
-//        if let item = items?[indexPath.row] {
-//                    print("SE \(item.name)")
-//            cell.textLabel?.text = item.name
-//        } else {
-//            cell.textLabel?.text = "No Items Added"
-//        }
-//
-//        return cell
-//    }
     
+    
+    @IBAction func onToggleShowCompletedTasks(_ sender: UIButton) {
+        showClosedTasks = !showClosedTasks
+        showCompletedTasks(showClosedTasks)
+    }
+    
+    func showCompletedTasks(_ show: Bool) {
+        showClosedTasksButton?.setTitle(showClosedTasks ? openTasksTitle: closedTasksTitle, for: .normal)
+        items = realm.objects(Task.self).filter("closed = %@", NSNumber(value: showClosedTasks))
+        self.reloadData()
+    }
     
     //MARK: - TableView Delegate Methods
     
@@ -125,11 +132,11 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
     //TODO: - hide keyboard on click outside
     //TODO: - stick input to header
     //TODO: - set input constraints
+    // TODO: ADD item to BEGINNEG of list
     @IBAction func onAddNewTask(_ sender: UITextField) {
         if let newTaskName = newTaskField.text {
             let hasAnyText = newTaskName.trimmingCharacters(in: .whitespacesAndNewlines).count > 0
             if hasAnyText {
-                
                 do {
                     try self.realm.write {
                         let item = Task()
@@ -139,7 +146,7 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
                         realm.add(item)
                         newTaskField.text = ""
                         
-                        self.tableView.reloadData()
+                        self.reloadData()
                     }
                 } catch {
                     print("Error saving new items, \(error)")
@@ -156,10 +163,9 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
     }
     
     //MARK - Model Manipulation Methods
-    
-    func loadItems() {
-        items = realm.objects(Task.self)
-        tableView.reloadData()
+    func reloadData() {
+        taskCountLabel.text = "\(items?.count ?? 0) tasks"
+        self.tableView.reloadData()
     }
 }
 
