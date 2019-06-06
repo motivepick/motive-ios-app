@@ -12,4 +12,5 @@ import RealmSwift
 class Task: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var closed: Bool = false
+    @objc dynamic var dueDate: Date?
 }

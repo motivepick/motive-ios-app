@@ -8,8 +8,9 @@ target 'motive' do
   pod 'RealmSwift', '~> 3.16.1'
   pod 'Alamofire', '~> 4.7'
   pod 'SwiftyJSON', '~> 4.0'
-
-  # Pods for motive
+#  pod 'FontAwesome.swift'  
+  
+# Pods for motive
 
   target 'motiveTests' do
     inherit! :search_paths

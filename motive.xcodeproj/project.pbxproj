@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7730943B22A976F100283A93 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B477E22A5A15500C32220 /* TableViewCell.swift */; };
+		775B478122A5A15500C32220 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 775B477F22A5A15500C32220 /* TableViewCell.xib */; };
 		77B505B122A41F64005099D3 /* TaskListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B505B022A41F64005099D3 /* TaskListController.swift */; };
+		77FDD2D922A6CABC00597189 /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77FDD2D622A6CABC00597189 /* Font Awesome 5 Free-Regular-400.otf */; };
+		77FDD2DA22A6CABC00597189 /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77FDD2D722A6CABC00597189 /* Font Awesome 5 Brands-Regular-400.otf */; };
+		77FDD2DB22A6CABC00597189 /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77FDD2D822A6CABC00597189 /* Font Awesome 5 Free-Solid-900.otf */; };
 		87D0FD34181CC2BF9A610E67 /* Pods_motive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865AC9E054E04A9876CB4F85 /* Pods_motive.framework */; };
 		959B85A1B2FD0D49F21A9E46 /* Pods_motiveUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D737B06EE8D5D7B046EB7914 /* Pods_motiveUITests.framework */; };
 		997409A22A275B828C7435CE /* Pods_motiveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91CB24A7216E347CB34AC7D /* Pods_motiveTests.framework */; };
@@ -45,7 +50,12 @@
 /* Begin PBXFileReference section */
 		34B01112730B05C053AF5F01 /* Pods-motiveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motiveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-motiveTests/Pods-motiveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		431E5E5006C926A77D6D4E0B /* Pods-motive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motive.release.xcconfig"; path = "Pods/Target Support Files/Pods-motive/Pods-motive.release.xcconfig"; sourceTree = "<group>"; };
+		775B477E22A5A15500C32220 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		775B477F22A5A15500C32220 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		77B505B022A41F64005099D3 /* TaskListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListController.swift; sourceTree = "<group>"; };
+		77FDD2D622A6CABC00597189 /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
+		77FDD2D722A6CABC00597189 /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
+		77FDD2D822A6CABC00597189 /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
 		865AC9E054E04A9876CB4F85 /* Pods_motive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_motive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8F3EC073F2AE9F2BF4435BB /* Pods-motiveTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motiveTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-motiveTests/Pods-motiveTests.release.xcconfig"; sourceTree = "<group>"; };
 		BE14FB0C2166AB27002B488B /* motive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = motive.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +121,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		775B477D22A5A0E600C32220 /* CustomTaskCell */ = {
+			isa = PBXGroup;
+			children = (
+				775B477E22A5A15500C32220 /* TableViewCell.swift */,
+				775B477F22A5A15500C32220 /* TableViewCell.xib */,
+			);
+			path = CustomTaskCell;
+			sourceTree = "<group>";
+		};
+		77FDD2D522A6CA4E00597189 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				77FDD2D722A6CABC00597189 /* Font Awesome 5 Brands-Regular-400.otf */,
+				77FDD2D622A6CABC00597189 /* Font Awesome 5 Free-Regular-400.otf */,
+				77FDD2D822A6CABC00597189 /* Font Awesome 5 Free-Solid-900.otf */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
 		BE14FB032166AB27002B488B = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +165,7 @@
 		BE14FB0E2166AB27002B488B /* motive */ = {
 			isa = PBXGroup;
 			children = (
+				77FDD2D522A6CA4E00597189 /* Supporting files */,
 				BEB046DF2169F59600AE14B7 /* Service */,
 				BE14FB442166B1A2002B488B /* Model */,
 				BE14FB412166ACB7002B488B /* View */,
@@ -180,6 +210,7 @@
 		BE14FB412166ACB7002B488B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				775B477D22A5A0E600C32220 /* CustomTaskCell */,
 				BE14FB132166AB27002B488B /* Main.storyboard */,
 				BE14FB1B2166AB28002B488B /* LaunchScreen.storyboard */,
 			);
@@ -335,8 +366,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE14FB1D2166AB28002B488B /* LaunchScreen.storyboard in Resources */,
+				77FDD2DA22A6CABC00597189 /* Font Awesome 5 Brands-Regular-400.otf in Resources */,
+				775B478122A5A15500C32220 /* TableViewCell.xib in Resources */,
 				BE14FB1A2166AB28002B488B /* Assets.xcassets in Resources */,
 				BE14FB152166AB27002B488B /* Main.storyboard in Resources */,
+				77FDD2D922A6CABC00597189 /* Font Awesome 5 Free-Regular-400.otf in Resources */,
+				77FDD2DB22A6CABC00597189 /* Font Awesome 5 Free-Solid-900.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +496,7 @@
 				BE14FB122166AB27002B488B /* RootController.swift in Sources */,
 				BE153CC6223DBF1300498A2D /* MainController.swift in Sources */,
 				BE14FB182166AB27002B488B /* motive.xcdatamodeld in Sources */,
+				7730943B22A976F100283A93 /* TableViewCell.swift in Sources */,
 				BEB046E12169F5B400AE14B7 /* TaskService.swift in Sources */,
 				BE14FB462166B1B3002B488B /* Task.swift in Sources */,
 				BE14FB432166B160002B488B /* TaskController.swift in Sources */,
@@ -644,6 +680,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A4C63TUZYL;
 				INFOPLIST_FILE = motive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -663,6 +700,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A4C63TUZYL;
 				INFOPLIST_FILE = motive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
