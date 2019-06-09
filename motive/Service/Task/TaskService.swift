@@ -37,9 +37,15 @@ class TaskService {
         do {
             try realm.write() {
                 for (key, value) in dictionary {
-                    if key == "name" || key == "taskDescription" {
+                    if key == "name" {
                         if hasAnyText(value as! String) {
                             task.setValue(value, forKey: key)
+                        }
+                    } else if key == "taskDescription" {
+                        if hasAnyText(value as! String) {
+                            task.setValue(value, forKey: key)
+                        } else {
+                            task.setValue((value as! String).trimmingCharacters(in: .whitespacesAndNewlines), forKey: key)
                         }
                     } else {
                         task.setValue(value, forKey: key)

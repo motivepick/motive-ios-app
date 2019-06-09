@@ -55,6 +55,11 @@ class TaskController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
+    @IBAction func onDeleteButtonPressed(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+        TaskService.shared.delete(task!)
+    }
+    
     @IBAction func onTaskNameUpdated(_ sender: UITextField) {
         TaskService.shared.update(task!, with: ["name": nameField.text])
     }

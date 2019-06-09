@@ -32,11 +32,7 @@ class TaskDescriptionController: UIViewController, UITextViewDelegate, UINavigat
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if taskDescriptionField.text != nil
-            && taskDescriptionField.text != ""
-            && taskDescriptionField.text != placeholder {
-            TaskService.shared.update(task!, with: ["taskDescription": taskDescriptionField.text])
-        }
+        saveDescription()
 
         super.viewWillDisappear(animated)
         tearDownToolBar()
@@ -46,7 +42,7 @@ class TaskDescriptionController: UIViewController, UITextViewDelegate, UINavigat
     
     //MARK: Handle Description Change
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if task?.taskDescription != nil {
+        if hasAnyText(task?.taskDescription ?? "") {
             taskDescriptionField.text = task?.taskDescription
         } else {
             taskDescriptionField.text = ""
@@ -55,9 +51,7 @@ class TaskDescriptionController: UIViewController, UITextViewDelegate, UINavigat
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        if textView.text != placeholder {
-            TaskService.shared.update(task!, with: ["taskDescription": textView.text])
-        }
+        saveDescription()
     }
     
     //MARK: Handle Keyboard Appear
@@ -83,7 +77,7 @@ class TaskDescriptionController: UIViewController, UITextViewDelegate, UINavigat
     }
     
     private func setInitialFieldsValues() {
-        if task?.taskDescription != nil {
+        if hasAnyText(task?.taskDescription ?? "") {
             taskDescriptionField.text = task?.taskDescription
         } else {
             self.setPlaceholder()
@@ -101,5 +95,15 @@ class TaskDescriptionController: UIViewController, UITextViewDelegate, UINavigat
     private func setPlaceholder() {
         taskDescriptionField.text = placeholder
         taskDescriptionField.textColor = UIColor.lightGray
+    }
+    
+    private func saveDescription() {
+        if taskDescriptionField.text != placeholder {
+            TaskService.shared.update(task!, with: ["taskDescription": taskDescriptionField.text])
+        }
+    }
+    
+    private func hasAnyText(_ str: String) -> Bool {
+        return  str.trimmingCharacters(in: .whitespacesAndNewlines).count > 0
     }
 }

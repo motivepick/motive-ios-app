@@ -265,7 +265,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0l8-r6-1QR"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit" largeTitleDisplayMode="never" id="eCg-EG-J9O"/>
+                    <navigationItem key="navigationItem" title="Edit" largeTitleDisplayMode="never" id="eCg-EG-J9O">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="lwj-bF-jsl">
+                            <connections>
+                                <action selector="onDeleteButtonPressed:" destination="7PD-em-Hq4" id="ydF-oH-Dtz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dueDateField" destination="iXd-7E-X24" id="ZQe-tH-XyL"/>
                         <outlet property="nameField" destination="9Td-pM-snA" id="HkX-Xn-Zy2"/>
