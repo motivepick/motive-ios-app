@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		771B367922AC21B7003C3D2E /* TaskDescriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B367822AC21B7003C3D2E /* TaskDescriptionController.swift */; };
 		7730943B22A976F100283A93 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B477E22A5A15500C32220 /* TableViewCell.swift */; };
 		775B478122A5A15500C32220 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 775B477F22A5A15500C32220 /* TableViewCell.xib */; };
 		77B505B122A41F64005099D3 /* TaskListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B505B022A41F64005099D3 /* TaskListController.swift */; };
 		77FDD2D922A6CABC00597189 /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77FDD2D622A6CABC00597189 /* Font Awesome 5 Free-Regular-400.otf */; };
 		77FDD2DA22A6CABC00597189 /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77FDD2D722A6CABC00597189 /* Font Awesome 5 Brands-Regular-400.otf */; };
 		77FDD2DB22A6CABC00597189 /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77FDD2D822A6CABC00597189 /* Font Awesome 5 Free-Solid-900.otf */; };
+		77FF897F22AAD512000B2EFE /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77FF897E22AAD512000B2EFE /* TaskService.swift */; };
 		87D0FD34181CC2BF9A610E67 /* Pods_motive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 865AC9E054E04A9876CB4F85 /* Pods_motive.framework */; };
 		959B85A1B2FD0D49F21A9E46 /* Pods_motiveUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D737B06EE8D5D7B046EB7914 /* Pods_motiveUITests.framework */; };
 		997409A22A275B828C7435CE /* Pods_motiveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E91CB24A7216E347CB34AC7D /* Pods_motiveTests.framework */; };
@@ -27,7 +29,7 @@
 		BE14FB432166B160002B488B /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14FB422166B160002B488B /* TaskController.swift */; };
 		BE14FB462166B1B3002B488B /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE14FB452166B1B3002B488B /* Task.swift */; };
 		BE153CC6223DBF1300498A2D /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE153CC5223DBF1300498A2D /* MainController.swift */; };
-		BEB046E12169F5B400AE14B7 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB046E02169F5B400AE14B7 /* TaskService.swift */; };
+		BEB046E12169F5B400AE14B7 /* TaskRemoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB046E02169F5B400AE14B7 /* TaskRemoteService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,12 +52,14 @@
 /* Begin PBXFileReference section */
 		34B01112730B05C053AF5F01 /* Pods-motiveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motiveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-motiveTests/Pods-motiveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		431E5E5006C926A77D6D4E0B /* Pods-motive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motive.release.xcconfig"; path = "Pods/Target Support Files/Pods-motive/Pods-motive.release.xcconfig"; sourceTree = "<group>"; };
+		771B367822AC21B7003C3D2E /* TaskDescriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionController.swift; sourceTree = "<group>"; };
 		775B477E22A5A15500C32220 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		775B477F22A5A15500C32220 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		77B505B022A41F64005099D3 /* TaskListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListController.swift; sourceTree = "<group>"; };
 		77FDD2D622A6CABC00597189 /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
 		77FDD2D722A6CABC00597189 /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
 		77FDD2D822A6CABC00597189 /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
+		77FF897E22AAD512000B2EFE /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
 		865AC9E054E04A9876CB4F85 /* Pods_motive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_motive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8F3EC073F2AE9F2BF4435BB /* Pods-motiveTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motiveTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-motiveTests/Pods-motiveTests.release.xcconfig"; sourceTree = "<group>"; };
 		BE14FB0C2166AB27002B488B /* motive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = motive.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +79,7 @@
 		BE14FB422166B160002B488B /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 		BE14FB452166B1B3002B488B /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		BE153CC5223DBF1300498A2D /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
-		BEB046E02169F5B400AE14B7 /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
+		BEB046E02169F5B400AE14B7 /* TaskRemoteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRemoteService.swift; sourceTree = "<group>"; };
 		D10FCA7372307194FE90790A /* Pods-motiveUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motiveUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-motiveUITests/Pods-motiveUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D11FEC16A741C5D27E567724 /* Pods-motive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-motive/Pods-motive.debug.xcconfig"; sourceTree = "<group>"; };
 		D737B06EE8D5D7B046EB7914 /* Pods_motiveUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_motiveUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,8 +205,9 @@
 			children = (
 				BE14FB112166AB27002B488B /* RootController.swift */,
 				BE153CC5223DBF1300498A2D /* MainController.swift */,
-				BE14FB422166B160002B488B /* TaskController.swift */,
 				77B505B022A41F64005099D3 /* TaskListController.swift */,
+				BE14FB422166B160002B488B /* TaskController.swift */,
+				771B367822AC21B7003C3D2E /* TaskDescriptionController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -236,7 +241,8 @@
 		BEB046E42169F67300AE14B7 /* Task */ = {
 			isa = PBXGroup;
 			children = (
-				BEB046E02169F5B400AE14B7 /* TaskService.swift */,
+				BEB046E02169F5B400AE14B7 /* TaskRemoteService.swift */,
+				77FF897E22AAD512000B2EFE /* TaskService.swift */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -496,12 +502,14 @@
 				BE14FB122166AB27002B488B /* RootController.swift in Sources */,
 				BE153CC6223DBF1300498A2D /* MainController.swift in Sources */,
 				BE14FB182166AB27002B488B /* motive.xcdatamodeld in Sources */,
+				771B367922AC21B7003C3D2E /* TaskDescriptionController.swift in Sources */,
 				7730943B22A976F100283A93 /* TableViewCell.swift in Sources */,
-				BEB046E12169F5B400AE14B7 /* TaskService.swift in Sources */,
+				BEB046E12169F5B400AE14B7 /* TaskRemoteService.swift in Sources */,
 				BE14FB462166B1B3002B488B /* Task.swift in Sources */,
 				BE14FB432166B160002B488B /* TaskController.swift in Sources */,
 				77B505B122A41F64005099D3 /* TaskListController.swift in Sources */,
 				BE14FB102166AB27002B488B /* AppDelegate.swift in Sources */,
+				77FF897F22AAD512000B2EFE /* TaskService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

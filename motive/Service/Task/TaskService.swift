@@ -1,50 +1,88 @@
 //
-//  TaskService.swift
+//  RealmService.swift
 //  motive
 //
-//  Created by Evgeny Mironenko on 07/10/2018.
-//  Copyright © 2018 Motivepick. All rights reserved.
+//  Created by Jelena on 07/06/2019.
+//  Copyright © 2019 Motivepick. All rights reserved.
 //
 
 import Foundation
-import Alamofire
-import SwiftyJSON
+import RealmSwift
 
 class TaskService {
+    //singleton
+    static let shared = TaskService()
     
-    let url = "https://api.motivepick.com"
-    let jwtToken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyMTgyNzM0MjkxOTYzNzcxIiwic2NvcGVzIjpbIlJPTEVfVVNFUiJdLCJpc3MiOiJtb3RpdmUiLCJpYXQiOjE1NTI3NzcxMjV9.3y8NYV_m3CnE80Nq1cZmMV6t8nnPBhiBS_nCmVwZCF1dLTliBgNipoXc3cpUpHChRzJNyKfKkRObI-N6aFbYcA"
-    
-    init() {
-        let properties = [
-            HTTPCookiePropertyKey.domain: "api.motivepick.com",
-            HTTPCookiePropertyKey.path: "/",
-            HTTPCookiePropertyKey.name: "SESSION",
-            HTTPCookiePropertyKey.value: jwtToken,
-        ]
-        
-        Alamofire.SessionManager.default.session.configuration.httpCookieStorage?
-            .setCookie(HTTPCookie(properties: properties)!)
+    let realm = try! Realm()
+
+    private init() {}
+
+    func add(_ newTaskName: String) {
+        if hasAnyText(newTaskName) {
+            do {
+                try realm.write {
+                    let item = Task()
+                    item.name = newTaskName
+                    item.closed = false
+                    
+                    realm.add(item)
+                }
+            } catch {
+                handleError(error)
+            }
+        }
     }
     
-    func loadTasks(completion: @escaping ([Task]) -> Void) {
-//        Alamofire.request("\(url)/tasks").responseJSON { response in
-//            switch response.result {
-//                case .success(let value):
-//                    let json = JSON(value)
-//                    print("JSON: \(json)")
-//                    var tasks: [Task] = []
-//                    for (_, object) in json {
-//                        let name = object["name"].stringValue
-//                        let description = object["description"].stringValue
-//                        tasks.append(Task(name, description))
-//                    }
-//                    completion(tasks)
-//                case .failure(let error):
-//                    print(error)
-//                    completion([])
-//            }
-//        }
+    func update(_ task: Task, with dictionary: [String: Any?]) {
+        do {
+            try realm.write() {
+                for (key, value) in dictionary {
+                    if key == "name" || key == "taskDescription" {
+                        if hasAnyText(value as! String) {
+                            task.setValue(value, forKey: key)
+                        }
+                    } else {
+                        task.setValue(value, forKey: key)
+                    }
+                }
+            }
+        } catch {
+            handleError(error)
+        }
     }
     
+    func saveToggledTaskClosed(_ task: Task) {
+        do{
+            try realm.write {
+                task.closed = !task.closed
+            }
+        } catch {
+            handleError(error)
+            
+        }
+    }
+    
+    func getTasksByClosed(_ showClosedTasks: Bool) -> Results<Task>  {
+        return realm
+            .objects(Task.self)
+            .filter("closed = %@", NSNumber(value: showClosedTasks))
+    }
+    
+    func delete(_ task: Task) {
+        do {
+            try realm.write() {
+                realm.delete(task)
+            }
+        } catch {
+            handleError(error)
+        }
+    }
+    
+    private func handleError(_ error: Error) {
+        print("TaskService error \(error)")
+    }
+    
+    private func hasAnyText(_ str: String) -> Bool {
+        return  str.trimmingCharacters(in: .whitespacesAndNewlines).count > 0
+    }
 }

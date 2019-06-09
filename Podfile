@@ -9,6 +9,7 @@ target 'motive' do
   pod 'Alamofire', '~> 4.7'
   pod 'SwiftyJSON', '~> 4.0'
 #  pod 'FontAwesome.swift'  
+#  pod 'Calendar-iOS'
   
 # Pods for motive
 

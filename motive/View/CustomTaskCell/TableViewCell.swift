@@ -8,19 +8,34 @@
 
 import UIKit
 
-enum TaskCompletionStatus: String {
-    case done = "check-circle"
-    case inProgress = "circle"
-    
-    func value() -> String {
-        return self.rawValue
+//enum TaskCompletionStatus: String {
+//    case done = "check-circle"
+//    case inProgress = "circle"
+//
+//    func value() -> String {
+//        return self.rawValue
+//    }
+//}
+
+
+extension TableViewCell {
+    public enum TaskCompletionStatus: String {
+        case done = "check-circle"
+        case inProgress = "circle"
+        
+        func value() -> String {
+            return self.rawValue
+        }
     }
 }
+
 
 class TableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var dueDate: UILabel!
     @IBOutlet weak var closed: UIButton!
+    
+//    var checkMark: TableViewCell.TaskCompletionStatus
     
     override func awakeFromNib() {
         super.awakeFromNib()

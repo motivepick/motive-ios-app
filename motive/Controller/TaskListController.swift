@@ -10,13 +10,12 @@ import Foundation
 import RealmSwift
 
 class TaskListController: UITableViewController, UITextFieldDelegate {
-    let realm = try! Realm()
-    
     var items: Results<Task>?
 
     @IBOutlet weak var newTaskField: UITextField!
     @IBOutlet weak var showClosedTasksButton: UIButton!
     @IBOutlet weak var taskCountLabel: UILabel!
+    @IBOutlet weak var navBarItem: UINavigationItem!
     
     let strokeEffect: [NSAttributedString.Key : Any] = [
         NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
@@ -30,10 +29,12 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
     let green = UIColor.init(red: 120.0/255.0, green: 209.0/255.0, blue: 116.0/255.0, alpha: 1.0)
     
     var showClosedTasks = false
-    let closedTasksTitle = "SHOW CLOSED TASKS"
-    let openTasksTitle = "SHOW OPEN TASKS"
+    
+    var selectedTask: Task?
     
     //TODO: add borders around TaskInfoView
+    //TODO: apply color palette of motive
+    //TODO: handle empty state
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,8 +50,15 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
         
         dateFormatter.dateFormat = "dd.MM.yyyy"
         dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped(gestureRecognizer:)))
 
         showCompletedTasks(showClosedTasks)
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        self.tableView.endEditing(true)
+        self.view.endEditing(true)
     }
     
     //MARK: - Tableview Datasource Methods
@@ -69,20 +77,20 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
         if let item = items?[indexPath.row] {
             cell.closed?.tag = indexPath.row;
             cell.closed?.addTarget(self, action: #selector(onCloseTask(sender:)), for: .touchUpInside)
-            cell.dueDate?.text = item.dueDate != nil ? dateFormatter.string(from: item.dueDate!) : nil
+            cell.dueDate?.text = item.dueDate != nil ? dateFormatter.string(from: item.dueDate! as Date) : nil
             
             if item.closed {
                 cell.name?.attributedText = NSAttributedString(string: item.name, attributes: strokeEffect)
                 cell.name?.textColor = UIColor.lightGray
                 cell.dueDate?.textColor = UIColor.lightGray
-                cell.closed?.setTitle(TaskCompletionStatus.done.value(), for: .normal)
+                cell.closed?.setTitle(TableViewCell.TaskCompletionStatus.done.value(), for: .normal)
             } else {
                 cell.name?.attributedText = NSAttributedString(string: item.name, attributes: nil)
                 cell.name?.textColor = UIColor.black
-                cell.closed?.setTitle(TaskCompletionStatus.inProgress.value(), for: .normal)
+                cell.closed?.setTitle(TableViewCell.TaskCompletionStatus.inProgress.value(), for: .normal)
                 
                 if (item.dueDate != nil) {
-                    let comparison = today.compare(item.dueDate!)
+                    let comparison = today.compare(item.dueDate! as Date)
 
                     // ComparisonResult.orderedDescending ? "past" : "future"
                     cell.dueDate?.textColor = comparison == ComparisonResult.orderedDescending ? red : green
@@ -97,19 +105,28 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if let task = items?[indexPath.row] {
+            selectedTask = task
+            self.performSegue(withIdentifier: "Go To Task Details", sender: self)
+        }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Go To Task Details" {
+            let destination = segue.destination as! TaskController
+            destination.task = selectedTask
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.reloadData()
+    }
+
     @objc func onCloseTask(sender: UIButton){
         let index = sender.tag
         if let task = items?[index] {
-            do{
-                try realm.write {
-                    task.closed = !task.closed
-                }
-                self.reloadData()
-            } catch {
-                print("error \(error)")
-            }
+            TaskService.shared.saveToggledTaskClosed(task)
+            self.reloadData()
         }
     }
     
@@ -120,8 +137,9 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
     }
     
     func showCompletedTasks(_ show: Bool) {
-        showClosedTasksButton?.setTitle(showClosedTasks ? openTasksTitle: closedTasksTitle, for: .normal)
-        items = realm.objects(Task.self).filter("closed = %@", NSNumber(value: showClosedTasks))
+        showClosedTasksButton?.setTitle(showClosedTasks ? "SHOW OPEN TASKS": "SHOW CLOSED TASKS", for: .normal)
+
+        items = TaskService.shared.getTasksByClosed(showClosedTasks)
         self.reloadData()
     }
     
@@ -135,28 +153,12 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
     // TODO: ADD item to BEGINNEG of list
     @IBAction func onAddNewTask(_ sender: UITextField) {
         if let newTaskName = newTaskField.text {
-            let hasAnyText = newTaskName.trimmingCharacters(in: .whitespacesAndNewlines).count > 0
-            if hasAnyText {
-                do {
-                    try self.realm.write {
-                        let item = Task()
-                        item.name = newTaskName
-                        item.closed = false
-                        
-                        realm.add(item)
-                        newTaskField.text = ""
-                        
-                        self.reloadData()
-                    }
-                } catch {
-                    print("Error saving new items, \(error)")
-                }
-            } else {
-                newTaskField.text = ""
-            }
+            TaskService.shared.add(newTaskName)
+            self.reloadData()
+            newTaskField.text = ""
         }
     }
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
