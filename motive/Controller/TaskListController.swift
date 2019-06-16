@@ -31,7 +31,6 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
 //        addTapGesture()
         
         showCompletedTasks(showClosedTasks)
-        getTasksSchedule()
     }
 
     //MARK: - Tableview Datasource Methods
@@ -154,20 +153,6 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
     func cancelAddTask() {
         newTaskField.text = ""
         view.endEditing(true)
-    }
-    
-//    var sectionNames: [String] {
-//        return Set(items.valueForKeyPath("race") as! [String]).sort()
-//    }
-    
-    // https://stackoverflow.com/questions/43388287/ios-how-to-display-date-read-today-14-april
-    func getTasksSchedule() {
-//        let tasks = TaskService.shared.getOpenTasksWithDueDates()
-//        let groupedTasks = Scheduler().groupTasksByDates(tasks)
-//        print(groupedTasks)
-//        print("====groupedTasks.count", groupedTasks.count)
-//        print("====groupedTasks with section at index1", groupedTasks.firs)
-        
     }
 }
 
