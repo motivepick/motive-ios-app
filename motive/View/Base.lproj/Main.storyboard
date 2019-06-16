@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oPL-tI-FR7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IqH-zu-8r2">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,7 +30,6 @@
                                 <barButtonItem title="Logout" width="196.5" id="J0D-9Q-qS3">
                                     <connections>
                                         <action selector="onLogout:" destination="NPl-Z6-pwb" id="IDh-vQ-4Zw"/>
-                                        <segue destination="IqH-zu-8r2" kind="show" identifier="Logout" id="BS2-KX-Amn"/>
                                     </connections>
                                 </barButtonItem>
                             </items>
@@ -150,7 +149,13 @@
                             <outlet property="delegate" destination="6pX-Y4-CC3" id="tar-94-KFe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Tasks" largeTitleDisplayMode="always" id="akL-9c-Pwm"/>
+                    <navigationItem key="navigationItem" title="Tasks" largeTitleDisplayMode="always" id="akL-9c-Pwm">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="2A6-bl-d5h">
+                            <connections>
+                                <action selector="onLogout:" destination="6pX-Y4-CC3" id="zcd-ww-bj9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="navBarItem" destination="akL-9c-Pwm" id="V8y-bV-5QF"/>
@@ -163,6 +168,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WGu-lI-qid" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1192.8" y="868.22660098522169"/>
+        </scene>
+        <!--Schedule-->
+        <scene sceneID="K3M-jY-42v">
+            <objects>
+                <tableViewController id="lCN-y2-mlB" userLabel="Schedule" customClass="ScheduleController" customModule="motive" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9xX-Lc-6nu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="aqk-3g-hPE">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aqk-3g-hPE" id="s6f-PQ-APB">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lCN-y2-mlB" id="GCQ-Tm-r1Y"/>
+                            <outlet property="delegate" destination="lCN-y2-mlB" id="d7R-sE-CgV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Schedule" largeTitleDisplayMode="always" id="pVR-HE-OxC"/>
+                    <connections>
+                        <segue destination="7PD-em-Hq4" kind="show" identifier="Go To Task Details" id="IO6-bJ-qjR"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1T2-BW-Ui8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1160.8695652173915" y="1736.3839285714284"/>
         </scene>
         <!--Edit-->
         <scene sceneID="IU1-nI-Ls0">
@@ -227,15 +264,14 @@
                                     <outlet property="delegate" destination="7PD-em-Hq4" id="4iR-FN-CXn"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="A place for your notes" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="T6q-UH-h23">
-                                <rect key="frame" x="15" y="298" width="384" height="30"/>
+                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" usesAttributedText="YES" borderStyle="roundedRect" placeholder="A place for your notes" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="T6q-UH-h23">
+                                <rect key="frame" x="15" y="298" width="384" height="120"/>
                                 <color key="backgroundColor" red="0.94870024919509888" green="0.92589372396469116" blue="0.90588027238845825" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Xtt-73-6bR"/>
+                                    <constraint firstAttribute="height" constant="120" id="Xtt-73-6bR"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="7PD-em-Hq4" id="iJ7-q5-Dr6"/>
@@ -281,7 +317,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ULk-uK-NjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2120.8000000000002" y="867.48768472906409"/>
+            <point key="canvasLocation" x="1959" y="1300"/>
         </scene>
         <!--Edit Notes-->
         <scene sceneID="C4R-CT-R5G">
@@ -315,12 +351,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hqY-xo-R8T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2949.5999999999999" y="867.48768472906409"/>
+            <point key="canvasLocation" x="2867" y="1300"/>
         </scene>
         <!--Root Controller-->
         <scene sceneID="EIH-b1-cjY">
             <objects>
-                <viewController id="IqH-zu-8r2" customClass="RootController" customModule="motive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RootController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IqH-zu-8r2" customClass="RootController" customModule="motive" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CCl-Jx-3xs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -332,7 +368,6 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="onLogin:" destination="IqH-zu-8r2" eventType="touchUpInside" id="N6a-ek-Chx"/>
-                                    <segue destination="NPl-Z6-pwb" kind="show" identifier="Login" id="ADl-1f-xgX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -342,12 +377,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DXG-I7-vjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-598" y="72"/>
+            <point key="canvasLocation" x="-2336" y="1266"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Tab View Controller-->
+        <scene sceneID="TF2-Sh-1Pa">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3ix-FM-9NE" customClass="MainTabViewController" customModule="motive" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0we-tR-0oy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="oPL-tI-FR7" kind="relationship" relationship="viewControllers" id="A26-Gm-hXc"/>
+                        <segue destination="3lb-XU-PT3" kind="relationship" relationship="viewControllers" id="436-DF-BL0"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="81b-3u-mHb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-512" y="1266"/>
+        </scene>
+        <!--TaskList-->
         <scene sceneID="mZq-tu-tmg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oPL-tI-FR7" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oPL-tI-FR7" userLabel="TaskList" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tasks" id="Hz3-gZ-yod" userLabel="Tasks"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="TBk-Yy-NTD">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -363,8 +418,28 @@
             </objects>
             <point key="canvasLocation" x="253.59999999999999" y="868.51574212893559"/>
         </scene>
+        <!--Schedule-->
+        <scene sceneID="qXi-Ht-oB7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3lb-XU-PT3" userLabel="Schedule" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Schedule" id="l3N-L5-y00" userLabel="Schedule"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Q95-Hm-tiz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lCN-y2-mlB" kind="relationship" relationship="rootViewController" id="LBN-uW-e2o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WEa-UC-OuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="250.72463768115944" y="1736.3839285714284"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BS2-KX-Amn"/>
+        <segue reference="zGU-ne-axO"/>
     </inferredMetricsTieBreakers>
 </document>

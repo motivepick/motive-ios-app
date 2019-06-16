@@ -16,7 +16,15 @@ class RootController: UIViewController {
     }
 
     @IBAction func onLogin(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "Login", sender: self)
+        let mainTabController = storyboard?.instantiateViewController(withIdentifier: "MainTabViewController") as! MainTabViewController
+
+        let app:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+        UserDefaults.standard.synchronize()
+        
+        app.window!.rootViewController = mainTabController
+        app.window!.makeKeyAndVisible()
+
     }
 }
 

@@ -17,50 +17,23 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var taskCountLabel: UILabel!
     @IBOutlet weak var navBarItem: UINavigationItem!
     
-    let strokeEffect: [NSAttributedString.Key : Any] = [
-        NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue,
-        NSAttributedString.Key.strikethroughColor: UIColor.lightGray,
-    ]
-    
-    let dateFormatter = DateFormatter()
-    let calendar = Calendar(identifier: .gregorian)
-    
-    let red = UIColor.init(red: 227.0/255.0, green: 84.0/255.0, blue: 70.0/255.0, alpha: 1.0)
-    let green = UIColor.init(red: 120.0/255.0, green: 209.0/255.0, blue: 116.0/255.0, alpha: 1.0)
-    
     var showClosedTasks = false
     
     var selectedTask: Task?
     
-    //TODO: add borders around TaskInfoView
-    //TODO: apply color palette of motive
-    //TODO: handle empty state
     override func viewDidLoad() {
         super.viewDidLoad()
         
         newTaskField.delegate = self
-        
-        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "customTaskCell")
-
-        tableView.separatorStyle = .none
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 120
-        
         navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+        setupTableView()
+//        addTapGesture()
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped(gestureRecognizer:)))
-
         showCompletedTasks(showClosedTasks)
+        getTasksSchedule()
     }
-    
-    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
-        self.tableView.endEditing(true)
-        self.view.endEditing(true)
-    }
-    
+
     //MARK: - Tableview Datasource Methods
 
     // render number of cells. If no items to render, then render 1 cell with special content to handle empty table view
@@ -68,34 +41,13 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
         return items?.count ?? 1
     }
     
-    
-//     USING custom cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customTaskCell", for: indexPath) as! TableViewCell
-        let today = calendar.startOfDay(for: Date())
         
         if let item = items?[indexPath.row] {
             cell.closed?.tag = indexPath.row;
             cell.closed?.addTarget(self, action: #selector(onCloseTask(sender:)), for: .touchUpInside)
-            cell.dueDate?.text = item.dueDate != nil ? dateFormatter.string(from: item.dueDate! as Date) : nil
-            
-            if item.closed {
-                cell.name?.attributedText = NSAttributedString(string: item.name, attributes: strokeEffect)
-                cell.name?.textColor = UIColor.lightGray
-                cell.dueDate?.textColor = UIColor.lightGray
-                cell.closed?.setTitle(TableViewCell.TaskCompletionStatus.done.value(), for: .normal)
-            } else {
-                cell.name?.attributedText = NSAttributedString(string: item.name, attributes: nil)
-                cell.name?.textColor = UIColor.black
-                cell.closed?.setTitle(TableViewCell.TaskCompletionStatus.inProgress.value(), for: .normal)
-                
-                if (item.dueDate != nil) {
-                    let comparison = today.compare(item.dueDate! as Date)
-
-                    // ComparisonResult.orderedDescending ? "past" : "future"
-                    cell.dueDate?.textColor = comparison == ComparisonResult.orderedDescending ? red : green
-                }
-            }
+            cell.renderContent(itemName: item.name, isClosed: item.closed, itemDueDate: item.dueDate)
         } else {
             cell.name?.text = "No Items Added"
         }
@@ -123,6 +75,7 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
     }
 
     @objc func onCloseTask(sender: UIButton){
+        cancelAddTask()
         let index = sender.tag
         if let task = items?[index] {
             TaskService.shared.saveToggledTaskClosed(task)
@@ -130,16 +83,15 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    
     @IBAction func onToggleShowCompletedTasks(_ sender: UIButton) {
+        cancelAddTask()
         showClosedTasks = !showClosedTasks
         showCompletedTasks(showClosedTasks)
     }
     
     func showCompletedTasks(_ show: Bool) {
         showClosedTasksButton?.setTitle(showClosedTasks ? "SHOW OPEN TASKS": "SHOW CLOSED TASKS", for: .normal)
-
-        items = TaskService.shared.getTasksByClosed(showClosedTasks)
+        items = TaskService.shared.getTasksByClosed(show)
         self.reloadData()
     }
     
@@ -147,7 +99,6 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
     
 
     //MARK: - Add New Items
-    //TODO: - hide keyboard on click outside
     //TODO: - stick input to header
     //TODO: - set input constraints
     // TODO: ADD item to BEGINNEG of list
@@ -159,9 +110,23 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
         }
     }
 
+    @IBAction func onLogout(_ sender: UIBarButtonItem) {
+        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
+        UserDefaults.standard.synchronize()
+        
+        let root = self.storyboard?.instantiateViewController(withIdentifier: "RootController") as! RootController
+        
+        let app:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        app.window?.rootViewController = root
+    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
+        if textField == newTaskField {
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
     }
     
     //MARK - Model Manipulation Methods
@@ -169,5 +134,41 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
         taskCountLabel.text = "\(items?.count ?? 0) tasks"
         self.tableView.reloadData()
     }
+    
+    private func setupTableView() {
+        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "customTaskCell")
+        tableView.separatorStyle = .none
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 120
+    }
+    
+    private func addTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
+        cancelAddTask()
+    }
+    
+    func cancelAddTask() {
+        newTaskField.text = ""
+        view.endEditing(true)
+    }
+    
+//    var sectionNames: [String] {
+//        return Set(items.valueForKeyPath("race") as! [String]).sort()
+//    }
+    
+    // https://stackoverflow.com/questions/43388287/ios-how-to-display-date-read-today-14-april
+    func getTasksSchedule() {
+//        let tasks = TaskService.shared.getOpenTasksWithDueDates()
+//        let groupedTasks = Scheduler().groupTasksByDates(tasks)
+//        print(groupedTasks)
+//        print("====groupedTasks.count", groupedTasks.count)
+//        print("====groupedTasks with section at index1", groupedTasks.firs)
+        
+    }
 }
+
 

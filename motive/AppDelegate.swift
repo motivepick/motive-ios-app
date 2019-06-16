@@ -26,6 +26,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print("Error initialising new realm, \(error)")
         }
+        
+        let userLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+        if userLoggedIn {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainTabController = storyboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainTabViewController
+            window!.rootViewController = mainTabController
+            window!.makeKeyAndVisible()
+        }
+        
     
         return true
     }

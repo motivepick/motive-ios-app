@@ -64,7 +64,7 @@ class TaskDescriptionController: UIViewController, UITextViewDelegate, UINavigat
         let keyboardHeight: CGFloat = keyboardFrame.cgRectValue.height
         
         UIView.animate(withDuration: 0.5){
-            self.bottomConstraint.constant = keyboardHeight + 15
+            self.bottomConstraint.constant = keyboardHeight + 15.0
             self.view.layoutIfNeeded()
         }
     }
@@ -85,7 +85,7 @@ class TaskDescriptionController: UIViewController, UITextViewDelegate, UINavigat
     }
     
     private func setupToolBar() {
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 242/255, green: 236/255, blue: 231/255, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = UIColor.AppColor.BEIGE
     }
     
     private func tearDownToolBar() {

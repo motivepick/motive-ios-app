@@ -21,7 +21,7 @@ class TaskController: UIViewController, UITextFieldDelegate {
     
     private let dateFormatter = DateFormatter()
     
-    //TODO: dueDAte toolbar colors
+    //TODO: dueDate toolbar colors
     override func viewDidLoad() {
         super.viewDidLoad()
         dueDateField.delegate = self

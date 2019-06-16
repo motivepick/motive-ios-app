@@ -14,8 +14,12 @@ class TaskService {
     static let shared = TaskService()
     
     let realm = try! Realm()
+    
+//    var taskList: TaskList?
 
-    private init() {}
+    private init() {
+//        taskList = realm.objects(TaskList.self).first!
+    }
 
     func add(_ newTaskName: String) {
         if hasAnyText(newTaskName) {
@@ -24,8 +28,12 @@ class TaskService {
                     let item = Task()
                     item.name = newTaskName
                     item.closed = false
+                    item.created = NSDate()
                     
                     realm.add(item)
+                    
+                    // to insert at the top.
+                    //   taskList.tasks.insert(item, at: 0)
                 }
             } catch {
                 handleError(error)
@@ -61,6 +69,9 @@ class TaskService {
         do{
             try realm.write {
                 task.closed = !task.closed
+                if task.closed {
+                    task.closingDate = NSDate()
+                }
             }
         } catch {
             handleError(error)
@@ -72,6 +83,12 @@ class TaskService {
         return realm
             .objects(Task.self)
             .filter("closed = %@", NSNumber(value: showClosedTasks))
+    }
+    
+    func getOpenTasksWithDueDates() -> Results<Task>  {
+        return realm
+            .objects(Task.self)
+            .filter("closed = false AND dueDate != nil")
     }
     
     func delete(_ task: Task) {

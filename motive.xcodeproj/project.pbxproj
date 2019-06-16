@@ -9,8 +9,15 @@
 /* Begin PBXBuildFile section */
 		771B367922AC21B7003C3D2E /* TaskDescriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B367822AC21B7003C3D2E /* TaskDescriptionController.swift */; };
 		7730943B22A976F100283A93 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B477E22A5A15500C32220 /* TableViewCell.swift */; };
+		773E819122B5381500F6BB6A /* Sheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773E819022B5381500F6BB6A /* Sheduler.swift */; };
+		773E819322B69D3500F6BB6A /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773E819222B69D3500F6BB6A /* MainTabViewController.swift */; };
 		775B478122A5A15500C32220 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 775B477F22A5A15500C32220 /* TableViewCell.xib */; };
 		77B505B122A41F64005099D3 /* TaskListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B505B022A41F64005099D3 /* TaskListController.swift */; };
+		77BA3D7122B0187700051371 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA3D7022B0187700051371 /* AppConfig.swift */; };
+		77BA3D7322B01A9400051371 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA3D7222B01A9400051371 /* Colors.swift */; };
+		77BA3D7522B01DFD00051371 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA3D7422B01DFD00051371 /* DateUtils.swift */; };
+		77BA3D7722B0F28E00051371 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA3D7622B0F28D00051371 /* TaskList.swift */; };
+		77BA3D7922B163F300051371 /* ScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA3D7822B163F300051371 /* ScheduleController.swift */; };
 		77FDD2D922A6CABC00597189 /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77FDD2D622A6CABC00597189 /* Font Awesome 5 Free-Regular-400.otf */; };
 		77FDD2DA22A6CABC00597189 /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77FDD2D722A6CABC00597189 /* Font Awesome 5 Brands-Regular-400.otf */; };
 		77FDD2DB22A6CABC00597189 /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77FDD2D822A6CABC00597189 /* Font Awesome 5 Free-Solid-900.otf */; };
@@ -53,9 +60,16 @@
 		34B01112730B05C053AF5F01 /* Pods-motiveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motiveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-motiveTests/Pods-motiveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		431E5E5006C926A77D6D4E0B /* Pods-motive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motive.release.xcconfig"; path = "Pods/Target Support Files/Pods-motive/Pods-motive.release.xcconfig"; sourceTree = "<group>"; };
 		771B367822AC21B7003C3D2E /* TaskDescriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionController.swift; sourceTree = "<group>"; };
+		773E819022B5381500F6BB6A /* Sheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sheduler.swift; sourceTree = "<group>"; };
+		773E819222B69D3500F6BB6A /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		775B477E22A5A15500C32220 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		775B477F22A5A15500C32220 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		77B505B022A41F64005099D3 /* TaskListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListController.swift; sourceTree = "<group>"; };
+		77BA3D7022B0187700051371 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		77BA3D7222B01A9400051371 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		77BA3D7422B01DFD00051371 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
+		77BA3D7622B0F28D00051371 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
+		77BA3D7822B163F300051371 /* ScheduleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleController.swift; sourceTree = "<group>"; };
 		77FDD2D622A6CABC00597189 /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
 		77FDD2D722A6CABC00597189 /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
 		77FDD2D822A6CABC00597189 /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
@@ -134,6 +148,17 @@
 			path = CustomTaskCell;
 			sourceTree = "<group>";
 		};
+		77BA3D6F22B0185900051371 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				77BA3D7022B0187700051371 /* AppConfig.swift */,
+				77BA3D7222B01A9400051371 /* Colors.swift */,
+				77BA3D7422B01DFD00051371 /* DateUtils.swift */,
+				773E819022B5381500F6BB6A /* Sheduler.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		77FDD2D522A6CA4E00597189 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +194,7 @@
 		BE14FB0E2166AB27002B488B /* motive */ = {
 			isa = PBXGroup;
 			children = (
+				77BA3D6F22B0185900051371 /* Shared */,
 				77FDD2D522A6CA4E00597189 /* Supporting files */,
 				BEB046DF2169F59600AE14B7 /* Service */,
 				BE14FB442166B1A2002B488B /* Model */,
@@ -208,6 +234,8 @@
 				77B505B022A41F64005099D3 /* TaskListController.swift */,
 				BE14FB422166B160002B488B /* TaskController.swift */,
 				771B367822AC21B7003C3D2E /* TaskDescriptionController.swift */,
+				77BA3D7822B163F300051371 /* ScheduleController.swift */,
+				773E819222B69D3500F6BB6A /* MainTabViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -226,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				BE14FB452166B1B3002B488B /* Task.swift */,
+				77BA3D7622B0F28D00051371 /* TaskList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -503,13 +532,20 @@
 				BE153CC6223DBF1300498A2D /* MainController.swift in Sources */,
 				BE14FB182166AB27002B488B /* motive.xcdatamodeld in Sources */,
 				771B367922AC21B7003C3D2E /* TaskDescriptionController.swift in Sources */,
+				77BA3D7922B163F300051371 /* ScheduleController.swift in Sources */,
 				7730943B22A976F100283A93 /* TableViewCell.swift in Sources */,
 				BEB046E12169F5B400AE14B7 /* TaskRemoteService.swift in Sources */,
+				77BA3D7722B0F28E00051371 /* TaskList.swift in Sources */,
 				BE14FB462166B1B3002B488B /* Task.swift in Sources */,
 				BE14FB432166B160002B488B /* TaskController.swift in Sources */,
+				773E819122B5381500F6BB6A /* Sheduler.swift in Sources */,
+				77BA3D7322B01A9400051371 /* Colors.swift in Sources */,
 				77B505B122A41F64005099D3 /* TaskListController.swift in Sources */,
+				77BA3D7122B0187700051371 /* AppConfig.swift in Sources */,
+				77BA3D7522B01DFD00051371 /* DateUtils.swift in Sources */,
 				BE14FB102166AB27002B488B /* AppDelegate.swift in Sources */,
 				77FF897F22AAD512000B2EFE /* TaskService.swift in Sources */,
+				773E819322B69D3500F6BB6A /* MainTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
