@@ -26,5 +26,4 @@ struct AppConfig {
     static let API_URL = URL(string: API_ENDPOINT)
     static let VK_OAUTH2_URL = URL(string: "\(API_ENDPOINT)/oauth2/authorization/vk?mobile")
     static let FB_OAUTH2_URL = URL(string: "\(API_ENDPOINT)/oauth2/authorization/facebook?mobile")
-    
 }

@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
+    //todo: allow login later?
+    //todo: login handle wifi off?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         print(Realm.Configuration.defaultConfiguration.fileURL)
@@ -27,15 +30,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Error initialising new realm, \(error)")
         }
         
-        let userLoggedIn = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
-        if userLoggedIn {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let mainTabController = storyboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainTabViewController
-            window!.rootViewController = mainTabController
-            window!.makeKeyAndVisible()
-        }
+        handleLoggedIn()
         
+        return true
+    }
     
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        let token = url.host?.removingPercentEncoding
+        TokenService.shared.saveToken(token!)
+        handleLoggedIn()
         return true
     }
 
@@ -54,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.f
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -105,6 +108,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        }
+    }
+    
+    
+    // MARK: Handle User Logged IN
+    func handleLoggedIn() {
+        let userLoggedIn = TokenService.shared.isUserLoggedIn()
+        if userLoggedIn {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainTabController = storyboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainTabViewController
+            window!.rootViewController = mainTabController
+            window!.makeKeyAndVisible()
         }
     }
 

@@ -8,6 +8,7 @@ target 'motive' do
   pod 'RealmSwift', '~> 3.16.1'
   pod 'Alamofire', '~> 4.7'
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'SwiftKeychainWrapper', '~> 3.3.0'
 #  pod 'FontAwesome.swift'  
 #  pod 'Calendar-iOS'
   

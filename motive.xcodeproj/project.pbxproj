@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		771B367922AC21B7003C3D2E /* TaskDescriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B367822AC21B7003C3D2E /* TaskDescriptionController.swift */; };
+		771DE66122C73FCA00AD3FED /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DE66022C73FCA00AD3FED /* TokenService.swift */; };
 		7730943B22A976F100283A93 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B477E22A5A15500C32220 /* TableViewCell.swift */; };
 		773E819122B5381500F6BB6A /* Sheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773E819022B5381500F6BB6A /* Sheduler.swift */; };
 		773E819322B69D3500F6BB6A /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773E819222B69D3500F6BB6A /* MainTabViewController.swift */; };
@@ -60,6 +61,7 @@
 		34B01112730B05C053AF5F01 /* Pods-motiveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motiveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-motiveTests/Pods-motiveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		431E5E5006C926A77D6D4E0B /* Pods-motive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motive.release.xcconfig"; path = "Pods/Target Support Files/Pods-motive/Pods-motive.release.xcconfig"; sourceTree = "<group>"; };
 		771B367822AC21B7003C3D2E /* TaskDescriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionController.swift; sourceTree = "<group>"; };
+		771DE66022C73FCA00AD3FED /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		773E819022B5381500F6BB6A /* Sheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sheduler.swift; sourceTree = "<group>"; };
 		773E819222B69D3500F6BB6A /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		775B477E22A5A15500C32220 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 		BEB046DF2169F59600AE14B7 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				771DE66022C73FCA00AD3FED /* TokenService.swift */,
 				BEB046E42169F67300AE14B7 /* Task */,
 			);
 			path = Service;
@@ -505,6 +508,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -514,6 +518,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,6 +548,7 @@
 				77B505B122A41F64005099D3 /* TaskListController.swift in Sources */,
 				77BA3D7122B0187700051371 /* AppConfig.swift in Sources */,
 				77BA3D7522B01DFD00051371 /* DateUtils.swift in Sources */,
+				771DE66122C73FCA00AD3FED /* TokenService.swift in Sources */,
 				BE14FB102166AB27002B488B /* AppDelegate.swift in Sources */,
 				77FF897F22AAD512000B2EFE /* TaskService.swift in Sources */,
 				773E819322B69D3500F6BB6A /* MainTabViewController.swift in Sources */,
