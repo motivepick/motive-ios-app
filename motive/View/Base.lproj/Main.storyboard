@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IqH-zu-8r2">
-    <device id="retina6_1" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3ix-FM-9NE">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Aqf-ni-7kQ">
-                            <rect key="frame" x="0.0" y="852" width="414" height="44"/>
+                            <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
                                 <barButtonItem title="Refresh" width="176" id="rFB-xF-1w9">
@@ -45,7 +45,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jeW-wV-pKw" id="cfB-Ic-gQm">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -144,7 +144,7 @@
                                 <rect key="frame" x="0.0" y="116" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7eu-1Q-Amx" id="T4Y-ef-p0r">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -187,7 +187,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aqk-3g-hPE" id="s6f-PQ-APB">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -366,8 +366,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6s4-Ut-w3c" userLabel="Title">
+                                <rect key="frame" x="0.0" y="108.33333333333331" width="414" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOTIVE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9Y-9Q-6TN">
+                                        <rect key="frame" x="153" y="46.000000000000014" width="108" height="36"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEFEAT YOUR LAZINESS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FoG-Ah-M17">
+                                        <rect key="frame" x="135.66666666666666" y="90.000000000000014" width="142.99999999999997" height="15"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="FoG-Ah-M17" firstAttribute="top" secondItem="O9Y-9Q-6TN" secondAttribute="bottom" constant="8" id="GJb-Rk-j1W"/>
+                                    <constraint firstItem="FoG-Ah-M17" firstAttribute="centerX" secondItem="6s4-Ut-w3c" secondAttribute="centerX" id="Sxz-YH-wVF"/>
+                                    <constraint firstItem="O9Y-9Q-6TN" firstAttribute="centerX" secondItem="6s4-Ut-w3c" secondAttribute="centerX" id="dmH-W0-SYC"/>
+                                    <constraint firstItem="O9Y-9Q-6TN" firstAttribute="centerY" secondItem="6s4-Ut-w3c" secondAttribute="centerY" id="kj0-bM-FNI"/>
+                                    <constraint firstAttribute="height" constant="128" id="wvU-wi-ygn"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Moa-TC-Ggf" userLabel="Login Options">
-                                <rect key="frame" x="107" y="398" width="200" height="100"/>
+                                <rect key="frame" x="107" y="712" width="200" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PQS-GJ-ZaS" userLabel="VK login">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
@@ -485,40 +510,20 @@
                                     <constraint firstItem="g0C-zz-RSK" firstAttribute="top" secondItem="aAT-ki-2M7" secondAttribute="bottom" constant="5" id="yvH-c7-fXv"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6s4-Ut-w3c" userLabel="Title">
-                                <rect key="frame" x="0.0" y="240" width="414" height="128"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEFEAT YOUR LAZINESS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FoG-Ah-M17">
-                                        <rect key="frame" x="135.5" y="56.5" width="143" height="15"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOTIVE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9Y-9Q-6TN">
-                                        <rect key="frame" x="153" y="46" width="108" height="36"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="O9Y-9Q-6TN" firstAttribute="centerX" secondItem="6s4-Ut-w3c" secondAttribute="centerX" id="Nay-TK-1T4"/>
-                                    <constraint firstItem="O9Y-9Q-6TN" firstAttribute="centerY" secondItem="6s4-Ut-w3c" secondAttribute="centerY" id="Plg-zG-Ncm"/>
-                                    <constraint firstItem="FoG-Ah-M17" firstAttribute="centerX" secondItem="6s4-Ut-w3c" secondAttribute="centerX" id="R4x-af-sSd"/>
-                                    <constraint firstItem="FoG-Ah-M17" firstAttribute="centerY" secondItem="6s4-Ut-w3c" secondAttribute="centerY" id="S30-0y-Rmo"/>
-                                    <constraint firstAttribute="height" constant="128" id="tP9-9H-IQk"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6s4-Ut-w3c" firstAttribute="leading" secondItem="HJR-DA-WT1" secondAttribute="leading" id="16z-jS-Dun"/>
+                            <constraint firstItem="Moa-TC-Ggf" firstAttribute="centerX" secondItem="CCl-Jx-3xs" secondAttribute="centerX" id="Cch-nn-cO5"/>
                             <constraint firstItem="Moa-TC-Ggf" firstAttribute="centerX" secondItem="CCl-Jx-3xs" secondAttribute="centerX" id="Fh9-50-VtX"/>
                             <constraint firstItem="HJR-DA-WT1" firstAttribute="trailing" secondItem="6s4-Ut-w3c" secondAttribute="trailing" id="GT5-YV-kgZ"/>
-                            <constraint firstItem="Moa-TC-Ggf" firstAttribute="centerY" secondItem="CCl-Jx-3xs" secondAttribute="centerY" id="aFl-n8-aHY"/>
-                            <constraint firstItem="Moa-TC-Ggf" firstAttribute="centerY" secondItem="CCl-Jx-3xs" secondAttribute="centerY" id="jmW-fC-aZx"/>
+                            <constraint firstItem="Moa-TC-Ggf" firstAttribute="centerX" secondItem="CCl-Jx-3xs" secondAttribute="centerX" id="JME-iq-cpe"/>
+                            <constraint firstItem="6s4-Ut-w3c" firstAttribute="centerX" secondItem="CCl-Jx-3xs" secondAttribute="centerX" id="Jda-5o-lV7"/>
+                            <constraint firstItem="6s4-Ut-w3c" firstAttribute="trailing" secondItem="HJR-DA-WT1" secondAttribute="trailing" id="QZx-x5-KRF"/>
+                            <constraint firstItem="6s4-Ut-w3c" firstAttribute="top" secondItem="HJR-DA-WT1" secondAttribute="top" multiplier="16:9" constant="30" id="WAs-gT-6aO"/>
+                            <constraint firstItem="6s4-Ut-w3c" firstAttribute="leading" secondItem="HJR-DA-WT1" secondAttribute="leading" id="XVA-aW-xvh"/>
                             <constraint firstItem="Moa-TC-Ggf" firstAttribute="centerX" secondItem="CCl-Jx-3xs" secondAttribute="centerX" id="otw-jp-SyH"/>
+                            <constraint firstItem="HJR-DA-WT1" firstAttribute="bottom" secondItem="Moa-TC-Ggf" secondAttribute="bottom" constant="50" id="ydi-fz-naP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HJR-DA-WT1"/>
                     </view>
@@ -553,6 +558,7 @@
                     <tabBarItem key="tabBarItem" title="Tasks" id="Hz3-gZ-yod" userLabel="Tasks"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="TBk-Yy-NTD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
@@ -572,6 +578,7 @@
                     <tabBarItem key="tabBarItem" title="Schedule" id="l3N-L5-y00" userLabel="Schedule"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Q95-Hm-tiz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
