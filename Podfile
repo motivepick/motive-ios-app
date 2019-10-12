@@ -7,6 +7,7 @@ target 'motive' do
   
   pod 'RealmSwift', '~> 3.19.0'
   pod 'Alamofire', '~> 4.7'
+  pod 'AlamofireObjectMapper', '~> 5.2'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'SwiftKeychainWrapper', '~> 3.3.0'
 #  pod 'FontAwesome.swift'  

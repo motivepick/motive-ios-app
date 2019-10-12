@@ -1,5 +1,5 @@
 //
-//  RealmService.swift
+//  TaskService.swift
 //  motive
 //
 //  Created by Jelena on 07/06/2019.
@@ -10,102 +10,51 @@ import Foundation
 import RealmSwift
 
 class TaskService {
-    //singleton
     static let shared = TaskService()
-    
-    let realm = try! Realm()
-    
-//    var taskList: TaskList?
 
-    private init() {
-//        taskList = realm.objects(TaskList.self).first!
-    }
+    private init() {}
 
     func add(_ newTaskName: String) {
         if hasAnyText(newTaskName) {
-            do {
-                try realm.write {
-                    let item = Task()
-                    item.name = newTaskName
-                    item.closed = false
-                    item.created = NSDate()
-                    
-                    realm.add(item)
-                    
-                    // to insert at the top.
-                    //   taskList.tasks.insert(item, at: 0)
-                }
-            } catch {
-                handleError(error)
-            }
+            TaskClient.shared.create(["name": newTaskName, "closed": false, "created": NSDate()])
         }
     }
     
     func update(_ task: Task, with dictionary: [String: Any?]) {
-        do {
-            try realm.write() {
-                for (key, value) in dictionary {
-                    if key == "name" {
-                        if hasAnyText(value as! String) {
-                            task.setValue(value, forKey: key)
-                        }
-                    } else if key == "taskDescription" {
-                        if hasAnyText(value as! String) {
-                            task.setValue(value, forKey: key)
-                        } else {
-                            task.setValue((value as! String).trimmingCharacters(in: .whitespacesAndNewlines), forKey: key)
-                        }
-                    } else {
-                        task.setValue(value, forKey: key)
-                    }
-                }
-            }
-        } catch {
-            handleError(error)
+        var values: [String: Any?] = dictionary
+        if !hasAnyText(values["name"] as Any?) { values["name"] = nil }
+        if !hasAnyText(values["taskDescription"] as Any?) {
+            values["taskDescription"] = ""
         }
+        TaskClient.shared.update(task, with: values)
     }
     
     func saveToggledTaskClosed(_ task: Task) {
-        do{
-            try realm.write {
-                task.closed = !task.closed
-                if task.closed {
-                    task.closingDate = NSDate()
-                }
-            }
-        } catch {
-            handleError(error)
-            
-        }
+        let isOpen = !task.closed
+        let values = isOpen ? ["closed": isOpen ] : ["closed": isOpen, "closingDate": NSDate() ]
+        TaskClient.shared.update(task, with: values)
     }
     
     func getTasksByClosed(_ showClosedTasks: Bool) -> Results<Task>  {
-        return realm
-            .objects(Task.self)
-            .filter("closed = %@", NSNumber(value: showClosedTasks))
+        let filter = NSPredicate(format: "closed = %@", NSNumber(value: showClosedTasks))
+        return TaskClient.shared.list(by: filter)
     }
     
     func getOpenTasksWithDueDates() -> Results<Task>  {
-        return realm
-            .objects(Task.self)
-            .filter("closed = false AND dueDate != nil")
+        let filter = NSPredicate(format: "closed = false AND dueDate != nil")
+        return TaskClient.shared.list(by: filter)
     }
     
     func delete(_ task: Task) {
-        do {
-            try realm.write() {
-                realm.delete(task)
-            }
-        } catch {
-            handleError(error)
-        }
+        TaskClient.shared.delete(task)
     }
     
     private func handleError(_ error: Error) {
         print("TaskService error \(error)")
     }
     
-    private func hasAnyText(_ str: String) -> Bool {
-        return  str.trimmingCharacters(in: .whitespacesAndNewlines).count > 0
+    private func hasAnyText(_ str: Any?) -> Bool {
+        if str == nil { return false }
+        return  (str as! String).trimmingCharacters(in: .whitespacesAndNewlines).count > 0
     }
 }
