@@ -16,10 +16,10 @@ class TaskClient {
 
     private init() {}
     
-    func create(_ object: Any) {
+    func create(_ object: [String: Any?]) {
         do {
             try realm.write {
-                realm.add(object as! Object)
+                realm.create(Task.self, value: object, update: .modified)
             }
         } catch {
             handleError(error)
