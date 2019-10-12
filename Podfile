@@ -5,7 +5,7 @@ target 'motive' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   
-  pod 'RealmSwift', '~> 3.16.1'
+  pod 'RealmSwift', '~> 3.19.0'
   pod 'Alamofire', '~> 4.7'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'SwiftKeychainWrapper', '~> 3.3.0'
