@@ -40,8 +40,8 @@ extension Task: Mappable {
         closed          <- map["closed"]
         visible         <- map["visible"]
         dueDate         <- (map["dueDate"], DateTransform())
-        created         <- map["created"]
-        closingDate     <- map["closingDate"]
+        created         <- (map["created"], DateTransform())
+        closingDate     <- (map["closingDate"], DateTransform())
         taskDescription <- map["taskDescription"]
     }
 }
