@@ -32,8 +32,8 @@ class TableViewCell: UITableViewCell {
         NSAttributedString.Key.strikethroughColor: UIColor.lightGray,
     ]
     
-    func renderContent(itemName: String, isClosed: Bool, itemDueDate: NSDate?) {
-        dueDate?.text = itemDueDate != nil ? dateFormatter.string(from: itemDueDate! as Date) : nil
+    func renderContent(itemName: String, isClosed: Bool, itemDueDate: Date?) {
+        dueDate?.text = itemDueDate != nil ? dateFormatter.string(from: itemDueDate!) : nil
         
         if isClosed {
             name?.attributedText = NSAttributedString(string: itemName, attributes: strokeEffect)

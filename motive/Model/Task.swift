@@ -14,11 +14,12 @@ class Task: Object {
     @objc dynamic var id: Int = UUID().hashValue
     @objc dynamic var name: String = ""
     @objc dynamic var closed: Bool = false
-    @objc dynamic var dueDate: NSDate?
+    @objc dynamic var visible: Bool = true
+    @objc dynamic var dueDate: Date?
     @objc dynamic var taskDescription: String?
     
-    @objc dynamic var created: NSDate?
-    @objc dynamic var closingDate: NSDate?
+    @objc dynamic var created: Date?
+    @objc dynamic var closingDate: Date?
 
     override static func primaryKey() -> String? {
         return "id"
@@ -31,10 +32,14 @@ class Task: Object {
 
 extension Task: Mappable {
     func mapping(map: Map) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        
         id              <- map["id"]
         name            <- map["name"]
         closed          <- map["closed"]
-        dueDate         <- map["dueDate"]
+        visible         <- map["visible"]
+        dueDate         <- (map["dueDate"], DateTransform())
         created         <- map["created"]
         closingDate     <- map["closingDate"]
         taskDescription <- map["taskDescription"]

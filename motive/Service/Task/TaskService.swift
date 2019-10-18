@@ -16,7 +16,7 @@ class TaskService {
 
     func add(_ newTaskName: String) {
         if hasAnyText(newTaskName) {
-            TaskClient.shared.create(["name": newTaskName, "closed": false, "created": NSDate()])
+            TaskClient.shared.create(["name": newTaskName, "closed": false, "created": Date()])
         }
     }
     
@@ -31,7 +31,7 @@ class TaskService {
     
     func saveToggledTaskClosed(_ task: Task) {
         let isOpen = !task.closed
-        let values = isOpen ? ["closed": isOpen ] : ["closed": isOpen, "closingDate": NSDate() ]
+        let values = isOpen ? ["closed": isOpen, "closingDate": nil ] : ["closed": isOpen, "closingDate": Date() ]
         TaskClient.shared.update(task, with: values)
     }
     
@@ -46,7 +46,7 @@ class TaskService {
     }
     
     func delete(_ task: Task) {
-        TaskClient.shared.delete(task)
+        TaskClient.shared.update(task, with: ["visible": false])
     }
     
     private func handleError(_ error: Error) {

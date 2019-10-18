@@ -26,6 +26,18 @@ class TaskClient {
         }
     }
     
+    func createMany(_ tasks: [Task]){
+        do {
+            try realm.write {
+                for task in tasks {
+                    self.realm.add(task, update: .modified)
+                }
+            }
+        } catch {
+            handleError(error)
+        }
+    }
+    
     func update(_ object: Task, with values: [String: Any?]) {
         do {
             try realm.write {
