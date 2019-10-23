@@ -30,8 +30,8 @@ class TaskService {
     }
     
     func saveToggledTaskClosed(_ task: Task) {
-        let isOpen = !task.closed
-        let values = isOpen ? ["closed": isOpen, "closingDate": nil ] : ["closed": isOpen, "closingDate": Date() ]
+        let isClosed = !task.closed
+        let values = ["closed": isClosed, "closingDate": isClosed ? Date() : nil ] as [String : Any?]
         TaskClient.shared.update(task, with: values)
     }
     
