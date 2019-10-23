@@ -32,16 +32,13 @@ class Task: Object {
 
 extension Task: Mappable {
     func mapping(map: Map) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        
         id              <- map["id"]
         name            <- map["name"]
         closed          <- map["closed"]
         visible         <- map["visible"]
-        dueDate         <- (map["dueDate"], DateTransform())
-        created         <- (map["created"], DateTransform())
-        closingDate     <- (map["closingDate"], DateTransform())
-        taskDescription <- map["taskDescription"]
+        dueDate         <- (map["dueDate"], DateFormatMapper(dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS"))
+        created         <- (map["created"], DateFormatMapper(dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS"))
+        closingDate     <- (map["closingDate"], DateFormatMapper(dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS"))
+        taskDescription <- map["description"]
     }
 }
