@@ -14,6 +14,9 @@ import RealmSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    // Identifier for long running background task for SyncManager class
+    var backgroundSyncTask: UIBackgroundTaskIdentifier?
 
     
     //todo: allow login later?
@@ -41,6 +44,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         handleLoggedIn()
         return true
     }
+//
+//    // bind the alamofire backgroundCompletionHandler
+//    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+//        //        NSLog("handle events for background: \(identifier)")
+//        if identifier == SyncMangerIdentifier{
+//            SyncManager.instance.backgroundCompletionHandler = completionHandler
+//        }
+//    }
+//
+//    // Call this at the beginning of syncing
+//    func beginBackgroundSyncTask() {
+//
+//        backgroundSyncTask = UIApplication.sharedApplication.beginBackgroundTaskWithExpirationHandler({
+//            self.endBackgroundRestoreTask()
+//        })
+//    }
+//
+//    // Call this when syncing process ends
+//    func endBackgroundSyncTask() {
+//
+//        guard backgroundSyncTask != nil else {
+//            return
+//        }
+//        UIApplication.sharedApplication.endBackgroundTask(self.backgroundSyncTask!)
+//        self.backgroundSyncTask = UIBackgroundTaskInvalid
+//    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

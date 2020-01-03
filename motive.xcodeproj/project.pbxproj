@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7715F465236093F500BF4351 /* DateFormatMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7715F464236093F500BF4351 /* DateFormatMapper.swift */; };
 		771B367922AC21B7003C3D2E /* TaskDescriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771B367822AC21B7003C3D2E /* TaskDescriptionController.swift */; };
 		771DE66122C73FCA00AD3FED /* TokenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DE66022C73FCA00AD3FED /* TokenService.swift */; };
 		7730943B22A976F100283A93 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775B477E22A5A15500C32220 /* TableViewCell.swift */; };
@@ -15,6 +16,8 @@
 		775B478122A5A15500C32220 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 775B477F22A5A15500C32220 /* TableViewCell.xib */; };
 		77A67B2A235205A30032571A /* TaskServiceSync2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A67B29235205A30032571A /* TaskServiceSync2.swift */; };
 		77A67B2C235209980032571A /* TaskClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A67B2B235209980032571A /* TaskClient.swift */; };
+		77A67B2E235242EA0032571A /* SyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A67B2D235242EA0032571A /* SyncManager.swift */; };
+		77A67B30235251F20032571A /* TaskRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A67B2F235251F20032571A /* TaskRemote.swift */; };
 		77B505B122A41F64005099D3 /* TaskListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B505B022A41F64005099D3 /* TaskListController.swift */; };
 		77BA3D7122B0187700051371 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA3D7022B0187700051371 /* AppConfig.swift */; };
 		77BA3D7322B01A9400051371 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA3D7222B01A9400051371 /* Colors.swift */; };
@@ -62,6 +65,7 @@
 /* Begin PBXFileReference section */
 		34B01112730B05C053AF5F01 /* Pods-motiveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motiveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-motiveTests/Pods-motiveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		431E5E5006C926A77D6D4E0B /* Pods-motive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-motive.release.xcconfig"; path = "Pods/Target Support Files/Pods-motive/Pods-motive.release.xcconfig"; sourceTree = "<group>"; };
+		7715F464236093F500BF4351 /* DateFormatMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatMapper.swift; sourceTree = "<group>"; };
 		771B367822AC21B7003C3D2E /* TaskDescriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionController.swift; sourceTree = "<group>"; };
 		771DE66022C73FCA00AD3FED /* TokenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenService.swift; sourceTree = "<group>"; };
 		773E819022B5381500F6BB6A /* Sheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sheduler.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 		775B477F22A5A15500C32220 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		77A67B29235205A30032571A /* TaskServiceSync2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskServiceSync2.swift; sourceTree = "<group>"; };
 		77A67B2B235209980032571A /* TaskClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskClient.swift; sourceTree = "<group>"; };
+		77A67B2D235242EA0032571A /* SyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncManager.swift; sourceTree = "<group>"; };
+		77A67B2F235251F20032571A /* TaskRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRemote.swift; sourceTree = "<group>"; };
 		77B505B022A41F64005099D3 /* TaskListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListController.swift; sourceTree = "<group>"; };
 		77BA3D7022B0187700051371 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		77BA3D7222B01A9400051371 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -260,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				BE14FB452166B1B3002B488B /* Task.swift */,
+				7715F464236093F500BF4351 /* DateFormatMapper.swift */,
 				77BA3D7622B0F28D00051371 /* TaskList.swift */,
 			);
 			path = Model;
@@ -279,8 +286,10 @@
 			children = (
 				BEB046E02169F5B400AE14B7 /* TaskRemoteService.swift */,
 				77FF897E22AAD512000B2EFE /* TaskService.swift */,
+				77A67B2F235251F20032571A /* TaskRemote.swift */,
 				77A67B29235205A30032571A /* TaskServiceSync2.swift */,
 				77A67B2B235209980032571A /* TaskClient.swift */,
+				77A67B2D235242EA0032571A /* SyncManager.swift */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -539,9 +548,12 @@
 				BE14FB462166B1B3002B488B /* Task.swift in Sources */,
 				BE14FB432166B160002B488B /* TaskController.swift in Sources */,
 				773E819122B5381500F6BB6A /* Sheduler.swift in Sources */,
+				7715F465236093F500BF4351 /* DateFormatMapper.swift in Sources */,
 				77BA3D7322B01A9400051371 /* Colors.swift in Sources */,
+				77A67B30235251F20032571A /* TaskRemote.swift in Sources */,
 				77B505B122A41F64005099D3 /* TaskListController.swift in Sources */,
 				77BA3D7122B0187700051371 /* AppConfig.swift in Sources */,
+				77A67B2E235242EA0032571A /* SyncManager.swift in Sources */,
 				77BA3D7522B01DFD00051371 /* DateUtils.swift in Sources */,
 				771DE66122C73FCA00AD3FED /* TokenService.swift in Sources */,
 				BE14FB102166AB27002B488B /* AppDelegate.swift in Sources */,

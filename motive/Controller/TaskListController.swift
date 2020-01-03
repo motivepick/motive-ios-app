@@ -24,6 +24,14 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        TaskRemote.shared.loadTasks  { tasks in
+            print("loadng tASK")
+
+            print(tasks)
+//           self.items = tasks
+           self.reloadData()
+       }
+        
         newTaskField.delegate = self
         navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         

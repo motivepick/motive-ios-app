@@ -11,13 +11,10 @@ import Alamofire
 import SwiftyJSON
 
 import RealmSwift
+import ObjectMapper
 
 class TaskRemoteService {
-    
-    
-    
-    
-    static let sharedInstance = TaskRemoteService()
+    static let shared = TaskRemoteService()
 
     let realm = try! Realm()
     
@@ -28,7 +25,7 @@ class TaskRemoteService {
         let properties = [
             HTTPCookiePropertyKey.domain: "api.motivepick.com",
             HTTPCookiePropertyKey.path: "/",
-            HTTPCookiePropertyKey.name: "SESSION",
+            HTTPCookiePropertyKey.name: "MOTIVE_SESSION",
             HTTPCookiePropertyKey.value: jwtToken,
         ]
         
@@ -54,6 +51,51 @@ class TaskRemoteService {
 //                    completion([])
 //            }
 //        }
+        
+//        Alamofire.request("\(url)/tasks").res { response in
+//
+//        }
+//
+        print("in tasks service")
+        Alamofire.request("\(url)/tasks").responseString { response in
+            print("got resposnse")
+            print(response)
+             switch response.result {
+             case .success(let value):
+//                let tasks = JSON(value)
+//                    let [Task] = Mapper<Task>().map(JSONObject:response.result.value)
+                    let tasks = Mapper<Task>().mapArray(JSONString: value)
+
+                    do {
+                        try self.realm.write {
+                            for task in tasks! {
+                                self.realm.add(task, update: .modified)
+                         }
+                       }
+                    } catch let error as NSError {
+                      //TODO: Handle error
+                        print(error)
+                    }
+                    
+//                     let json = JSON(value)
+//                     print("JSON: \(json)")
+//                     var tasks: [Task] = []
+//                     for (_, object) in json {
+//                         let name = object["name"].stringValue
+//                         let description = object["description"].stringValue
+//                         tasks.append(Task(name, description))
+//
+//                        try! self.realm.write {
+////                            let json = try! JSONSerialization.jsonObject(with: data, options: [])
+////                            self.realm.add(object: object, update: .modified)
+//                        }
+//                     }
+//                     completion(tasks)
+                 case .failure(let error):
+                     print(error)
+                     completion([])
+             }
+         }
     }
     
     
