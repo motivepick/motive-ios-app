@@ -7,16 +7,22 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
+
+// TODO: find app icon <= how to reuse it
+// TODO: login scren positioning of items
 
 class RootController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    @IBAction func onLoginWithVK(_ sender: UIButton) {
+        UIApplication.shared.open(AppConfig.VK_OAUTH2_URL!, options: [:], completionHandler: nil)
     }
-
-    @IBAction func onLogin(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "Login", sender: self)
+    
+    @IBAction func onLoginWithFacebook(_ sender: UIButton) {
+        UIApplication.shared.open(AppConfig.FB_OAUTH2_URL!, options: [:], completionHandler: nil)
+    }
+    
+    @IBAction func onLoginWithAppleID(_ sender: UIButton) {
+        print("Logged in with Apple ID")
     }
 }
 

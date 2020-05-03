@@ -8,16 +8,68 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    // Identifier for long running background task for SyncManager class
+    var backgroundSyncTask: UIBackgroundTaskIdentifier?
 
+    
+    //todo: allow login later?
+    //todo: login handle wifi off?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+ 
+        do {
+            _ = try Realm(       configuration: Realm.Configuration(
+                deleteRealmIfMigrationNeeded: true
+            ))
+        } catch {
+            print("Error initialising new realm, \(error)")
+        }
+        
+        handleLoggedIn()
+        
         return true
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        let token = url.host?.removingPercentEncoding
+        TokenService.shared.saveToken(token!)
+        handleLoggedIn()
+        return true
+    }
+//
+//    // bind the alamofire backgroundCompletionHandler
+//    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+//        //        NSLog("handle events for background: \(identifier)")
+//        if identifier == SyncMangerIdentifier{
+//            SyncManager.instance.backgroundCompletionHandler = completionHandler
+//        }
+//    }
+//
+//    // Call this at the beginning of syncing
+//    func beginBackgroundSyncTask() {
+//
+//        backgroundSyncTask = UIApplication.sharedApplication.beginBackgroundTaskWithExpirationHandler({
+//            self.endBackgroundRestoreTask()
+//        })
+//    }
+//
+//    // Call this when syncing process ends
+//    func endBackgroundSyncTask() {
+//
+//        guard backgroundSyncTask != nil else {
+//            return
+//        }
+//        UIApplication.sharedApplication.endBackgroundTask(self.backgroundSyncTask!)
+//        self.backgroundSyncTask = UIBackgroundTaskInvalid
+//    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -34,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.f
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -85,6 +137,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        }
+    }
+    
+    
+    // MARK: Handle User Logged IN
+    func handleLoggedIn() {
+        let userLoggedIn = TokenService.shared.isUserLoggedIn()
+        if userLoggedIn {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mainTabController = storyboard.instantiateViewController(withIdentifier: "MainTabViewController") as! MainTabViewController
+            window!.rootViewController = mainTabController
+            window!.makeKeyAndVisible()
         }
     }
 

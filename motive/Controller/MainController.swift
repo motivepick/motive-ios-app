@@ -12,7 +12,7 @@ class MainController: UITableViewController {
     
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    private let taskService = TaskService() // TODO: how to use DI?
+    private let taskService = TaskRemoteService() // TODO: how to use DI?
     private var tasks: [Task] = []
     
     override func viewDidLoad() {
@@ -20,6 +20,10 @@ class MainController: UITableViewController {
         activityIndicator.backgroundColor = UIColor.white
         super.viewDidLoad()
         
+        reloadTasks()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         reloadTasks()
     }
     
