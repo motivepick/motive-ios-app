@@ -590,4 +590,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="zGU-ne-axO"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
