@@ -65,7 +65,12 @@ class TaskController: UIViewController, UITextFieldDelegate {
     @IBAction func onTaskNameUpdated(_ sender: UITextField) {
         TaskService.shared.update(task!, with: ["name": nameField.text])
     }
-    
+
+    @IBAction func onTaskDescriptionPress(_ sender: Any) {
+        view.endEditing(true)
+        performSegue(withIdentifier: "Go to Task Description", sender: self)
+    }
+
     //MARK: Handle Due Date
     @objc func onDateChange(datePicker: UIDatePicker) {
         dueDateField.text = dateFormatter.string(from: datePicker.date)
@@ -97,10 +102,7 @@ class TaskController: UIViewController, UITextFieldDelegate {
             dueDateField.text = dateFormatter.string(from: Date())
         }
         
-        if textField.tag == descriptionFieldTag {
-            performSegue(withIdentifier: "Go to Task Description", sender: self)
-            view.endEditing(true)
-        }
+//        if textField.tag == descriptionFieldTag {}
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
