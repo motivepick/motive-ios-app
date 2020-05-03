@@ -334,7 +334,6 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94870024919999996" green="0.92589372400000003" blue="0.90588027240000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Tzp-VK-1lz" firstAttribute="leading" secondItem="lQd-c5-Lam" secondAttribute="leading" constant="15" id="50A-oj-bQy"/>
                             <constraint firstItem="Tzp-VK-1lz" firstAttribute="top" secondItem="lQd-c5-Lam" secondAttribute="top" constant="15" id="FzM-Gn-hFm"/>

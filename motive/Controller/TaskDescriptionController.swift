@@ -86,6 +86,7 @@ class TaskDescriptionController: UIViewController, UITextViewDelegate, UINavigat
     
     private func setupToolBar() {
         self.navigationController?.navigationBar.barTintColor = UIColor.AppColor.BEIGE
+        self.view.backgroundColor = UIColor.AppColor.BEIGE
     }
     
     private func tearDownToolBar() {

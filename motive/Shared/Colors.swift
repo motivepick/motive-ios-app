@@ -21,7 +21,7 @@ extension UIColor {
         static let DARKER_RED = UIColor.init(hex: 0xE35446)
         static let DARKER_GREEN = UIColor.init(hex: 0x78D174)
         static let GRAY = UIColor.init(hex: 0x8E8E93)
-        static let BEIGE = UIColor.init(hex: 0xF2E7F5)
+        static let BEIGE = UIColor.init(hex: 0xF2ECE7)
     }
 }
 
