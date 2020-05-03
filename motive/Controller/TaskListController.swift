@@ -39,6 +39,8 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
 //        addTapGesture()
         
         showCompletedTasks(showClosedTasks)
+        
+        showClosedTasksButton.titleLabel?.font = UIFont.fontAwesome(ofSize: 30, style: .solid)
     }
 
     //MARK: - Tableview Datasource Methods
@@ -97,7 +99,9 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
     }
     
     func showCompletedTasks(_ show: Bool) {
-        showClosedTasksButton?.setTitle(showClosedTasks ? "SHOW OPEN TASKS": "SHOW CLOSED TASKS", for: .normal)
+//        showClosedTasksButton?.setTitle(showClosedTasks ? "SHOW OPEN TASKS": "SHOW CLOSED TASKS", for: .normal)
+        showClosedTasksButton?.setTitle(showClosedTasks ? String.fontAwesomeIcon(name: .clipboardList) : String.fontAwesomeIcon(name: .clipboardCheck), for: .normal)
+
         items = TaskService.shared.getTasksByClosed(show)
         self.reloadData()
     }
