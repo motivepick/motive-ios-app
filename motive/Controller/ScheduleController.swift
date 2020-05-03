@@ -18,6 +18,7 @@ class ScheduleController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
         setupTableView()
         getTasksSchedule()
     }
@@ -31,8 +32,12 @@ class ScheduleController: UITableViewController {
         return "\(sections[section])"
     }
     
+//     paint table section headers as white
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = UIColor.white
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return items[sections[section]]?.count ?? 1
     }
     
@@ -92,6 +97,7 @@ class ScheduleController: UITableViewController {
     func reloadData() {
         getTasksSchedule()
         self.tableView.reloadData()
+//        self.tableView.reloadSectionIndexTitles()
     }
     
     private func setupTableView() {
