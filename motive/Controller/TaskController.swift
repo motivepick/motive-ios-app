@@ -27,6 +27,8 @@ class TaskController: UIViewController, UITextFieldDelegate {
         dueDateField.delegate = self
         taskDescriptionField.delegate = self
         
+        setupFieds()
+        
         createDueDatePicker()
         createDueDatePickerToolbar()
         setupDateFormatter()
@@ -153,5 +155,11 @@ class TaskController: UIViewController, UITextFieldDelegate {
     private func setupDateFormatter() {
         dateFormatter.dateFormat = "dd.MM.yyyy"
         dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+    }
+    
+    private func setupFieds() {
+        nameField.addBorderAndColorToTextField(color: UIColor.white, width: 1.0, corner_radius: 8.0, clipsToBounds: true)
+        taskDescriptionField.addBorderAndColorToTextField(color: UIColor.white, width: 1.0, corner_radius: 8.0, clipsToBounds: true)
+        dueDateField.addBorderAndColorToTextField(color: UIColor.white, width: 1.0, corner_radius: 8.0, clipsToBounds: true)
     }
 }

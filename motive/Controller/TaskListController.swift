@@ -147,6 +147,8 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 120
+        
+        newTaskField.addBorderAndColorToTextField(color: UIColor.white, width: 1.0, corner_radius: 8.0, clipsToBounds: true)
     }
     
     private func addTapGesture() {
@@ -163,5 +165,3 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
 }
-
-

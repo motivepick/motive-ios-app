@@ -24,6 +24,7 @@
 		77BA3D7522B01DFD00051371 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA3D7422B01DFD00051371 /* DateUtils.swift */; };
 		77BA3D7722B0F28E00051371 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA3D7622B0F28D00051371 /* TaskList.swift */; };
 		77BA3D7922B163F300051371 /* ScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA3D7822B163F300051371 /* ScheduleController.swift */; };
+		77DB59D8245E874600A21DE5 /* ForFieldBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DB59D7245E874600A21DE5 /* ForFieldBorder.swift */; };
 		77FDD2D922A6CABC00597189 /* Font Awesome 5 Free-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77FDD2D622A6CABC00597189 /* Font Awesome 5 Free-Regular-400.otf */; };
 		77FDD2DA22A6CABC00597189 /* Font Awesome 5 Brands-Regular-400.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77FDD2D722A6CABC00597189 /* Font Awesome 5 Brands-Regular-400.otf */; };
 		77FDD2DB22A6CABC00597189 /* Font Awesome 5 Free-Solid-900.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77FDD2D822A6CABC00597189 /* Font Awesome 5 Free-Solid-900.otf */; };
@@ -82,6 +83,7 @@
 		77BA3D7422B01DFD00051371 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		77BA3D7622B0F28D00051371 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 		77BA3D7822B163F300051371 /* ScheduleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleController.swift; sourceTree = "<group>"; };
+		77DB59D7245E874600A21DE5 /* ForFieldBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForFieldBorder.swift; sourceTree = "<group>"; };
 		77FDD2D622A6CABC00597189 /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
 		77FDD2D722A6CABC00597189 /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
 		77FDD2D822A6CABC00597189 /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			children = (
 				77BA3D7022B0187700051371 /* AppConfig.swift */,
 				77BA3D7222B01A9400051371 /* Colors.swift */,
+				77DB59D7245E874600A21DE5 /* ForFieldBorder.swift */,
 				77BA3D7422B01DFD00051371 /* DateUtils.swift */,
 				773E819022B5381500F6BB6A /* Sheduler.swift */,
 			);
@@ -551,6 +554,7 @@
 				7715F465236093F500BF4351 /* DateFormatMapper.swift in Sources */,
 				77BA3D7322B01A9400051371 /* Colors.swift in Sources */,
 				77A67B30235251F20032571A /* TaskRemote.swift in Sources */,
+				77DB59D8245E874600A21DE5 /* ForFieldBorder.swift in Sources */,
 				77B505B122A41F64005099D3 /* TaskListController.swift in Sources */,
 				77BA3D7122B0187700051371 /* AppConfig.swift in Sources */,
 				77A67B2E235242EA0032571A /* SyncManager.swift in Sources */,
