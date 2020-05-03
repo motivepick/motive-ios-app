@@ -3,6 +3,7 @@ PODS:
   - AlamofireObjectMapper (5.2.1):
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
+  - FontAwesome.swift (1.9.0)
   - ObjectMapper (3.5.1)
   - Realm (3.19.0):
     - Realm/Headers (= 3.19.0)
@@ -15,6 +16,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - AlamofireObjectMapper (~> 5.2)
+  - FontAwesome.swift
   - RealmSwift (~> 3.19.0)
   - SwiftKeychainWrapper (~> 3.3.0)
   - SwiftyJSON (~> 4.0)
@@ -26,6 +28,7 @@ SPEC REPOS:
     - SwiftyJSON
   trunk:
     - AlamofireObjectMapper
+    - FontAwesome.swift
     - ObjectMapper
     - Realm
     - RealmSwift
@@ -33,12 +36,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
+  FontAwesome.swift: a403b88cec950511745ba8f2decd1b6a07346d13
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   Realm: 995d585bcf699aaff226715886c849a29dd3d07f
   RealmSwift: 35f284a537989f2187b413e5917091948cb87a3f
   SwiftKeychainWrapper: ef5ad793bc0e08e24a5913f28345b8f7bc8e4123
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 017fa10317b9337cd55b46ce9bbdd7dcae02b0aa
+PODFILE CHECKSUM: 6b073cafb67a856779e14bf8fceb243af0419a59
 
 COCOAPODS: 1.8.3

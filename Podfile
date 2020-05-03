@@ -10,7 +10,7 @@ target 'motive' do
   pod 'AlamofireObjectMapper', '~> 5.2'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'SwiftKeychainWrapper', '~> 3.3.0'
-#  pod 'FontAwesome.swift'  
+  pod 'FontAwesome.swift'  
 #  pod 'Calendar-iOS'
   
 # Pods for motive

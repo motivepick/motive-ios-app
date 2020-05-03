@@ -84,6 +84,7 @@
 		77BA3D7622B0F28D00051371 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 		77BA3D7822B163F300051371 /* ScheduleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleController.swift; sourceTree = "<group>"; };
 		77DB59D7245E874600A21DE5 /* ForFieldBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForFieldBorder.swift; sourceTree = "<group>"; };
+		77DB59DB245E992F00A21DE5 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FontAwesome_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77FDD2D622A6CABC00597189 /* Font Awesome 5 Free-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Regular-400.otf"; sourceTree = "<group>"; };
 		77FDD2D722A6CABC00597189 /* Font Awesome 5 Brands-Regular-400.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Brands-Regular-400.otf"; sourceTree = "<group>"; };
 		77FDD2D822A6CABC00597189 /* Font Awesome 5 Free-Solid-900.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Font Awesome 5 Free-Solid-900.otf"; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 		1B4664ABBAA99B195785E00A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				77DB59DB245E992F00A21DE5 /* FontAwesome_swift.framework */,
 				865AC9E054E04A9876CB4F85 /* Pods_motive.framework */,
 				E91CB24A7216E347CB34AC7D /* Pods_motiveTests.framework */,
 				D737B06EE8D5D7B046EB7914 /* Pods_motiveUITests.framework */,
