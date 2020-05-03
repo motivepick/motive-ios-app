@@ -25,7 +25,13 @@ class ScheduleController: UITableViewController {
     
     //MARK: - Tableview Datasource Methods
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+        if sections.count > 0 {
+            TableViewHelper.restore(viewController: self)
+            return sections.count
+        } else {
+            TableViewHelper.EmptyMessage(viewController: self, message: "No tasks are scheduled")
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

@@ -168,4 +168,14 @@ class TaskListController: UITableViewController, UITextFieldDelegate {
         newTaskField.text = ""
         view.endEditing(true)
     }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if items?.count ?? -1 > 0 {
+            TableViewHelper.restore(viewController: self)
+            return 1
+        } else {
+            TableViewHelper.EmptyMessage(viewController: self, message: "Seems like your task list is empty")
+            return 0
+        }
+    }
 }
